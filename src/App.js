@@ -293,10 +293,10 @@ function App() {
         <div className='col'>Student Detail</div>
       </div>
       <div className='row justify-content-between'>
-        <div className='col'>
+        <div className='col d-flex justify-content-center'>
           <img src={event1} alt='...' />
         </div>
-        <div className='col'>
+        <div className='col d-flex justify-content-center'>
           <img src={event1} alt='...' />
         </div>
       </div>
