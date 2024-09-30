@@ -12,7 +12,7 @@ const CardComponent = ({ image, onAddButtonClick, title, id }) => {
               bulk of the card's content.
             </Card.Text>
             <Button variant='primary' onClick={onAddButtonClick}>
-              Go somewhere
+              Buy
             </Button>
           </Card.Body>
         </Card>
