@@ -24,6 +24,9 @@ const HeaderComponent = (props) => {
             <Button variant='primary' onClick={props.showModel}>
               Items: <Badge bg='secondary'>{props.itemCount}</Badge>
             </Button>
+            <Button variant='primary' onClick={props.showLogin}>
+              Login
+            </Button>
           </Navbar.Collapse>
         </Container>
       </Navbar>

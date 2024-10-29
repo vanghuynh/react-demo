@@ -6,10 +6,11 @@ import './App.css';
 
 import { Container, Row } from 'react-bootstrap';
 import CardComponent from './components/card';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import HeaderComponent from './components/header';
 import SlideComponent from './components/slide';
 import SelectedItemComponent from './components/selectedItem';
+import LoginComponent from './components/login';
 
 function App() {
   const cardItems = [
@@ -20,7 +21,19 @@ function App() {
   const [itemCount, setItemCount] = useState(0);
   const [items, setItems] = useState(cardItems);
 
+  const fetchData = async () => {
+    const response = await fetch('https://api-demo-4gqb.onrender.com/products');
+    const data = await response.json();
+    setItems(data.data);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const [modalShow, setModalShow] = useState(false);
+
+  const [loginShow, setLoginShow] = useState(false);
 
   const selectedItems = [
     { id: 1, title: 'Card Title 1', count: 2 },
@@ -39,9 +52,16 @@ function App() {
           onHide={() => setModalShow(false)}
           selectedItems={selectedItems}
         />
+
+        <LoginComponent
+          show={loginShow}
+          handleClose={() => setLoginShow(false)}
+        ></LoginComponent>
+
         <HeaderComponent
           itemCount={itemCount}
           showModel={() => setModalShow(true)}
+          showLogin={() => setLoginShow(true)}
         />
         <SlideComponent />
         <Row className='mt-3'>
